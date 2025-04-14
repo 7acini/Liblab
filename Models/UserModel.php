@@ -1,6 +1,7 @@
 <?php
 
-require_once __DIR__."/Database/Database.php";
+namespace App\Models;
+use App\Models\Database;
 
 use PDO;
 
@@ -13,7 +14,7 @@ class UserModel{
 
     }
 
-    public function createUser($username, $email, $password){
+    public function createUser(string $username, string $email, string $password){
         $hashPassword = password_hash($password, PASSWORD_DEFAULT);
         $sql = "INSERT INTO users (name, email, password) VALUES (:name, :email, :password)";
         $stmt = $this->pdo->prepare($sql);
