@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+namespace App\Utils;
 
 class RenderView {
 

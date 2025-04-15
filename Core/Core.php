@@ -1,5 +1,8 @@
 <?php
 
+namespace App\Core;
+use App\Controller\NotFoundController;
+
 class Core
 {
     public function run($routes)
