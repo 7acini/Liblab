@@ -3,7 +3,7 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 require_once __DIR__."/Routes/routes.php";
-require_once __DIR__."/Core/Core.php";
+use App\Core\Core;
 
 spl_autoload_register(function ($file) {
     if (file_exists(__DIR__."/Utilitarios/$file.php")){

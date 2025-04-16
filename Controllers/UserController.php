@@ -1,7 +1,9 @@
 <?php
 
-require_once 'Utilitarios/RenderView.php';
-require_once 'Models/UserModel.php';
+namespace App\Controller;
+
+use App\Utils\RenderView;
+use App\Models\UserModel;
 
 class UserController {
     
