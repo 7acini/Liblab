@@ -1,7 +1,6 @@
-<?php
+<?php 
 
-namespace App\Models;
-use App\Config\Config;
+require_once __DIR__."/../../Config/Config.php";
 
 use PDO;
 use PDOException;
@@ -16,19 +15,18 @@ class Database{
         PDO::ATTR_ORACLE_NULLS => PDO::NULL_EMPTY_STRING
     ];
 
-    private string $hostname;
-    private string $username;
-    private string $password;
-    private string $database;
 
     public function __construct() {
-        $this->hostname = Config::get('DB_HOST');
-	    $this->username = Config::get('DB_USER');
-	    $this->password = Config::get('DB_PASS');
-        $this->database = Config::get('DB_NAME');
+
+        Config::load();
+
+        $hostname = Config::get('DB_HOST', '127.0.0.1');
+        $username = Config::get('DB_USER', 'root');
+        $password = Config::get('DB_PASS', '');
+        $database = Config::get('DB_NAME', 'liblab');
 
         try {
-            $this->pdo = new PDO("mysql:host=$this->hostname;dbname=$this->database;charset=utf8", $this->username, $this->password, $this->option);
+            $this->pdo = new PDO("mysql:host=$hostname;dbname=$database;charset=utf8", $username, $password, $this->option);
         } catch (PDOException $e) {
             die("Erro na conexão com o banco de dados: " . $e->getMessage());
         }

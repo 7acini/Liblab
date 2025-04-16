@@ -17,9 +17,6 @@ composer.lock
 .DS_Store
 Thumbs.db
 
-# Ignorar arquivos antigos que necessitam de revisão e refatoração
-/public_html
-
 # Ignorar arquivos do editor/IDE
 .idea/
 .vscode/
